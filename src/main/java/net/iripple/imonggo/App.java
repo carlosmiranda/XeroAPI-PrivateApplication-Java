@@ -23,11 +23,10 @@ public class App {
 	 */
 	public static void main(String[] args) {
 		try {
-			Request request = new JdkRequest("https://chibeepatag.c3.imonggo.com/api/products.xml");								
-			
-			request.header(HttpHeaders.AUTHORIZATION, String.format("Basic %s",  Base64.encodeBase64String("6790e03a1d088c82b08c34f0f011c311d9bf55e7:X".getBytes())));						     
-			request.header(HttpHeaders.ACCEPT, "application/xml");
-			request.header(HttpHeaders.CONTENT_TYPE, "application/xml");
+			Request request = new JdkRequest("https://chibeepatag.c3.imonggo.com/api/products.xml")								
+				.header(HttpHeaders.AUTHORIZATION, String.format("Basic %s",  Base64.encodeBase64String("6790e03a1d088c82b08c34f0f011c311d9bf55e7:X".getBytes())))						     
+				.header(HttpHeaders.ACCEPT, "application/xml")
+				.header(HttpHeaders.CONTENT_TYPE, "application/xml");
 						
 			Response response = request.fetch().as(XmlResponse.class)
 					  .assertXPath("/data/name") // AssertionError if this XPath is absent
