@@ -45,14 +45,14 @@ public class XeroClient {
     private String privateKey;
 
     public XeroClient(String endpointUrl, String consumerKey, String consumerSecret, String privateKey) {
-        this.endpointUrl = endpointUrl;
+        this.endpointUrl = endpointUrl.trim();
         this.consumerKey = consumerKey;
         this.consumerSecret = consumerSecret;
         this.privateKey = privateKey;
     }
 
     public XeroClient(XeroClientProperties clientProperties) {
-        this.endpointUrl = clientProperties.getEndpointUrl();
+        this.endpointUrl = clientProperties.getEndpointUrl().trim();
         this.consumerKey = clientProperties.getConsumerKey();
         this.consumerSecret = clientProperties.getConsumerSecret();
         this.privateKey = clientProperties.getPrivateKey();
