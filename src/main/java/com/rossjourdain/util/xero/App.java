@@ -117,6 +117,7 @@ public class App {
 
             Contact contact1 = new Contact();
             contact1.setName("John Smith");
+            contact1.setName("Josephine Smith");
             contact1.setEmailAddress("john@smith.com");
             contacts.add(contact1);
             xeroClient.postContacts(arrayOfContact);
