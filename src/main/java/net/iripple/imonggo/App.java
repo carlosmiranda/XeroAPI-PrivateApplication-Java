@@ -23,7 +23,8 @@ public class App {
 	 */
 	public static void main(String[] args) {
 		try {
-			Request request = new JdkRequest("https://chibeepatag.c3.imonggo.com/api/products.xml")								
+			Request request = new JdkRequest("https://chibeepatag.c3.imonggo.com/api/products.xml")
+				.through(RetryWire.class) // Auto retry for crappy connections. :D
 				.header(HttpHeaders.AUTHORIZATION, String.format("Basic %s",  Base64.encodeBase64String("6790e03a1d088c82b08c34f0f011c311d9bf55e7:X".getBytes())))						     
 				.header(HttpHeaders.ACCEPT, "application/xml")
 				.header(HttpHeaders.CONTENT_TYPE, "application/xml");
